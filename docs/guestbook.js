@@ -66,14 +66,14 @@ const guestbook = {
       $('#address').val().trim()
       ).done(function(result) {
       // reload entries
-      //loadEntries();
+      loadEntries();
     }).error(function(error) {
       console.log(error);
     });
   });
 
   $(document).ready(function() {
-    //prepareTemplates();
-    //loadEntries();
+    prepareTemplates();
+    loadEntries();
   });
 })();
