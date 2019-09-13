@@ -12,8 +12,8 @@ const guestbook = {
     });
   },
   // add a single guestbood entry
-  add(order, itemlist, address, ordertype) {
-    console.log('Sending', order, itemlist, address, ordertype)
+  add(order, itemlist, address) {
+    console.log('Sending', order, itemlist, address)
     return $.ajax({
       type: 'PUT',
       url: `${apiUrl}/entries`,
@@ -21,8 +21,7 @@ const guestbook = {
       data: JSON.stringify({
     	  order,
     	  itemlist,
-    	  address,
-    	  ordertype,
+    	  address,  	  
       }),
       dataType: 'json',
     });
@@ -64,9 +63,8 @@ const guestbook = {
     guestbook.add(
       $('#order').val().trim(),
       $('#itemlist').val().trim(),
-      $('#address').val().trim(),
-      $('#ordertype').val().trim()
-    ).done(function(result) {
+      $('#address').val().trim()
+      ).done(function(result) {
       // reload entries
       //loadEntries();
     }).error(function(error) {
